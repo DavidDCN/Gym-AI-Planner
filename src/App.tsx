@@ -1,4 +1,5 @@
 import React from 'react'
+import { NeonAuthUIProvider } from '@neondatabase/neon-js/auth/react';
 import { BrowserRouter,Route, Routes} from 'react-router-dom'
 import Onboarding from './pages/Onboarding'
 import Home from './pages/Home'
@@ -6,9 +7,11 @@ import Profile from './pages/Profile'
 import Auth from './pages/Auth'
 import Account from './pages/Account'
 import Navbar from './components/layout/Navbar'
+import{ authClient } from './lib/Auth';
 
 const App = () => {
   return (
+    <NeonAuthUIProvider authClient={authClient}>
     <BrowserRouter>
     <div className = "min-h-screen flex flex-col">
     <Navbar/>
@@ -23,6 +26,7 @@ const App = () => {
     </main>
     </div>
     </BrowserRouter>
+    </NeonAuthUIProvider>
   )
 }
 
