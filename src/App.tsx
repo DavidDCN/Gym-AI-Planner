@@ -8,10 +8,12 @@ import Auth from './pages/Auth'
 import Account from './pages/Account'
 import Navbar from './components/layout/Navbar'
 import{ authClient } from './lib/Auth';
+import AuthProvider from './context/AuthContext';
 
 const App = () => {
   return (
     <NeonAuthUIProvider authClient={authClient}>
+    <AuthProvider>
     <BrowserRouter>
     <div className = "min-h-screen flex flex-col">
     <Navbar/>
@@ -26,6 +28,7 @@ const App = () => {
     </main>
     </div>
     </BrowserRouter>
+    </AuthProvider>
     </NeonAuthUIProvider>
   )
 }
