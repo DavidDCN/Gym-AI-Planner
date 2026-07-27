@@ -32,4 +32,11 @@
   .animate-pulse {
     background-color: var(--color-border) !important;
   }
+
+  /* Native <option> popups ignore dark theme text color, forcing them
+     readable with an explicit light background + dark text */
+  select option {
+    color: #111827;
+    background-color: #ffffff;
+  }
 }

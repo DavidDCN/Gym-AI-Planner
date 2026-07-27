@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model user_profiles {
+  user_id         String   @id
+  goal            String
+  experience      String
+  days_per_week   Int
+  session_length  Int
+  equipment       String
+  injuries        String?
+  preferred_split String
+  updated_at      DateTime @default(now())
+}
+
+model training_plans {
+  id         String   @id @default(uuid())
+  user_id    String
+  plan_json  Json
+  plan_text  String
+  version    Int
+  created_at DateTime @default(now())
+}
